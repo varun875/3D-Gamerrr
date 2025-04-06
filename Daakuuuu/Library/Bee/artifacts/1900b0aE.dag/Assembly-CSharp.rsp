@@ -337,6 +337,9 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.InputSystem.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Recorder.Base.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Recorder.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Recorder.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Rider.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.ref.dll"
@@ -359,6 +362,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.46f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
+"Assets/healthhhhhhhhhh.cs"
 "Assets/Samples/Cinemachine/2.10.3/Cinemachine Example Scenes/Scenes/2D/LoseSightWhenTargetsFallsOffThePlatform.cs"
 "Assets/Samples/Cinemachine/2.10.3/Cinemachine Example Scenes/Scenes/2D/MouseScrollZoom2D.cs"
 "Assets/Samples/Cinemachine/2.10.3/Cinemachine Example Scenes/Scenes/3rdPersonWithAimMode/ActivateOnKeypress.cs"
@@ -389,7 +393,9 @@
 "Assets/Samples/Cinemachine/2.10.3/Cinemachine Example Scenes/Shared/Scripts/SimpleElevator.cs"
 "Assets/Samples/Cinemachine/2.10.3/Cinemachine Example Scenes/Shared/Scripts/SpawnInCircle.cs"
 "Assets/Samples/Cinemachine/2.10.3/Cinemachine Example Scenes/Shared/Scripts/ThirdPersonFollowDistanceModifier.cs"
+"Assets/script.cs"
 "Assets/Scripts/PlayerMovement.cs"
+"Assets/Travis Game Assets/Hit Impact Effects/Demo Scene/Scripts/HitImpactEffectsPreview.cs"
 -langversion:9.0
 /deterministic
 /optimize+
