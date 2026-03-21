@@ -5,6 +5,13 @@
 .utmp/
 /[Tt]emp/
 
+# Unity project subfolder — auto-generated folders
+Daakuuuu/[Ll]ibrary/
+Daakuuuu/[Tt]emp/
+Daakuuuu/[Ll]ogs/
+Daakuuuu/[Uu]serSettings/
+Daakuuuu/obj/
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 /[Mm]emoryCaptures/

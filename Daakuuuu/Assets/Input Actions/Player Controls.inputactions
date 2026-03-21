@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "run",
+                    "name": "Run",
                     "type": "Button",
                     "id": "de5a7ea1-0a43-40dd-ba93-f0dc7c2e3baa",
                     "expectedControlType": "Button",
@@ -34,17 +34,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "05e207cf-32a3-4f3a-9971-53726520da73",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "WASD ",
                     "id": "f0fecda4-e45f-489a-a641-13419517d043",
@@ -118,7 +107,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "run",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

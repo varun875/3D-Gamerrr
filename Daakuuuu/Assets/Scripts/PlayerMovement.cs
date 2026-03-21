@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
@@ -32,16 +28,11 @@ public class PlayerMovement : MonoBehaviour
     // Animation
     private Animator animator;
 
-    void Start()
-    {
-        controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
-    }
-
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
+        animator = GetComponent<Animator>();
 
         moveAction = playerInput.actions["Move"];
         jumpaction = playerInput.actions["Jump"];
@@ -59,7 +50,16 @@ public class PlayerMovement : MonoBehaviour
 
         // Movement
         Vector2 input = moveAction.ReadValue<Vector2>();
-        Vector3 move = new Vector3(input.x, 0, input.y);
+
+        // Camera-relative movement
+        Transform camTransform = Camera.main.transform;
+        Vector3 forward = camTransform.forward;
+        Vector3 right = camTransform.right;
+        forward.y = 0f;
+        right.y = 0f;
+        forward.Normalize();
+        right.Normalize();
+        Vector3 move = forward * input.y + right * input.x;
 
         float currentSpeed = moveSpeed; // default is walk speed
 
