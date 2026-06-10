@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GunController : MonoBehaviour
 {
@@ -8,9 +9,33 @@ public class GunController : MonoBehaviour
     public ParticleSystem muzzleFlash;  // Optional
     public GameObject impactEffect;     // Optional
 
+    private PlayerInput playerInput;
+    private InputAction fireAction;
+
+    void Awake()
+    {
+        // Try to get PlayerInput from this object or its parent
+        playerInput = GetComponent<PlayerInput>();
+        if (playerInput == null)
+        {
+            playerInput = GetComponentInParent<PlayerInput>();
+        }
+
+        if (playerInput != null)
+        {
+            // Assumes you have an action named "Fire" in your Input Actions map
+            fireAction = playerInput.actions["Fire"];
+        }
+        else
+        {
+            Debug.LogError("PlayerInput component not found on GunController or its parents!");
+        }
+    }
+
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) // Left click
+        // Check if the fire action was triggered this frame
+        if (fireAction != null && fireAction.WasPressedThisFrame())
         {
             Shoot();
         }
@@ -21,7 +46,15 @@ public class GunController : MonoBehaviour
         if (muzzleFlash != null)
             muzzleFlash.Play();
 
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        // Get mouse position using the New Input System
+        Vector2 mousePos = Mouse.current != null ? Mouse.current.position.ReadValue() : new Vector2(Screen.width / 2f, Screen.height / 2f);
+        
+        // Note: If this is an FPS game and the cursor is locked to the center, 
+        // you might want to shoot from the center of the screen instead:
+        // Vector2 screenCenter = new Vector2(Screen.width / 2f, Screen.height / 2f);
+        // Ray ray = cam.ScreenPointToRay(screenCenter);
+
+        Ray ray = cam.ScreenPointToRay(mousePos);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, range))
@@ -44,4 +77,3 @@ public class GunController : MonoBehaviour
         }
     }
 }
-

@@ -28,6 +28,9 @@ public class PlayerMovement : MonoBehaviour
     // Animation
     private Animator animator;
 
+    // Camera
+    private Transform camTransform;
+
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
@@ -37,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
         moveAction = playerInput.actions["Move"];
         jumpaction = playerInput.actions["Jump"];
         runAction = playerInput.actions["Run"]; // initialize run action
+
+        if (Camera.main != null)
+        {
+            camTransform = Camera.main.transform;
+        }
     }
 
     void Update()
@@ -52,9 +60,8 @@ public class PlayerMovement : MonoBehaviour
         Vector2 input = moveAction.ReadValue<Vector2>();
 
         // Camera-relative movement
-        Transform camTransform = Camera.main.transform;
-        Vector3 forward = camTransform.forward;
-        Vector3 right = camTransform.right;
+        Vector3 forward = camTransform != null ? camTransform.forward : Vector3.forward;
+        Vector3 right = camTransform != null ? camTransform.right : Vector3.right;
         forward.y = 0f;
         right.y = 0f;
         forward.Normalize();
@@ -63,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
         float currentSpeed = moveSpeed; // default is walk speed
 
-        if (runAction.phase == InputActionPhase.Performed) // check for run action
+        if (runAction.IsPressed()) // check for run action
         {
             currentSpeed = runSpeed;
         }
